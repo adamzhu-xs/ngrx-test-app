@@ -1,0 +1,19 @@
+{
+    "accounts": [
+        {
+            "id": "1234",
+            "name": "Checking account 1234",
+            "accountNo": "12341234"
+        },
+        {
+            "id": "4567",
+            "name": "Checking account 4567",
+            "accountNo": "45674567"
+        },
+        {
+            "id": "7890",
+            "name": "Checking account 7890",
+            "accountNo": "78907890"
+        }
+    ]
+}

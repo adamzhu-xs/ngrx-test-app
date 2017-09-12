@@ -1,0 +1,14 @@
+<p>
+    accountsummary works!
+</p>
+
+<div *ngIf="error$ | async">
+    Got error - {{error$.code}}
+</div>
+
+<div *ngIf="accounts$ | async">
+    <div *ngFor="let acct of accounts$ | async">
+        <a routerLink="/dashboard/accountdetails/{{acct.id}}" routerLinkActive="active">{{acct.name}}</a>
+        <span>{{acct.accountNo}}</span>
+    </div>
+</div>

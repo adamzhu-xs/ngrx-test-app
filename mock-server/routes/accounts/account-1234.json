@@ -1,0 +1,7 @@
+{
+    "id": "1234",
+    "name": "Checking account 1234",
+    "accountNo": "12341234",
+    "balance": 12000,
+    "status": "active"
+}
