@@ -7,6 +7,13 @@ export const selectAccounts = (state: IAppState) => state.account;
 export const selectAccountsOk = createSelector(selectAccounts, (state: IAppData) => state.data);
 export const selectAccountsErr = createSelector(selectAccounts, (state: IAppData) => state.error);
 
+export const selectAccountById = (selectedId) => {
+    return createSelector(
+        selectAccountsOk,
+        (entities) => entities.find((item) => item.id === selectedId)
+    );
+};
+
 export const ACCOUNT_LOAD = 'ACCOUNT_LOAD';
 export const ACCOUNT_LOAD_OK = 'ACCOUNT_LOAD_OK';
 export const ACCOUNT_LOAD_ERR = 'ACCOUNT_LOAD_ERR';
@@ -34,6 +41,8 @@ export class LoadAccountErr implements Action {
 
 export class AccountDetails implements Action {
     public readonly type = ACCOUNT_LOAD_DETAILS;
+
+    constructor(public payload: any) { }
 }
 
 export class AccountDetailsOk implements Action {

@@ -19,15 +19,22 @@ import {
 @Injectable()
 export class AccountEffects {
 
-    @Effect() login$: Observable<Action> = this.actions$.ofType(ACCOUNT_LOAD)
-        // Map the payload into JSON to use as the request body
+    @Effect() loadAccounts$: Observable<Action> = this.actions$
+        .ofType(ACCOUNT_LOAD)
         .map(toPayload)
         .mergeMap(payload =>
             this.http.get(environment.baseUrl + '/api/accounts')
-                // If successful, dispatch success action with result
                 .map(data => ({ type: ACCOUNT_LOAD_OK, payload: data.json().accounts }))
-                // If request fails, dispatch failed action
                 .catch(() => of({ type: ACCOUNT_LOAD_ERR, payload: { code: 'ERR' } }))
+        );
+
+    @Effect() loadAccountDetails$: Observable<Action> = this.actions$
+        .ofType(ACCOUNT_LOAD_DETAILS)
+        .map(toPayload)
+        .mergeMap(payload =>
+            this.http.get(environment.baseUrl + `/api/accounts/${payload.id}`)
+                .map(data => ({ type: ACCOUNT_LOAD_DETAILS_OK, payload: data.json() }))
+                .catch(() => of({ type: ACCOUNT_LOAD_DETAILS_ERR, payload: { code: 'ERR' } }))
         );
 
     constructor(

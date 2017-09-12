@@ -30,10 +30,32 @@ export function accountReducer(state = initialState, action: AccountAction): IAp
             };
 
         case ACCOUNT_LOAD_DETAILS_OK:
-            return state;
+            return {
+                ...state,
+                data: state.data.map(item => {
+                    if (item.id === action.payload.id) {
+                        const updated = Object.assign({}, item, action.payload);
+                        updated.detailsRetrived = true;
+                        return updated;
+                    }
+
+                    return item;
+                })
+            };
 
         case ACCOUNT_LOAD_DETAILS_ERR:
-            return state;
+            return {
+                ...state,
+                data: state.data.map(item => {
+                    if (item.id === action.payload.id) {
+                        const updated = Object.assign({}, item);
+                        updated.detailsError = action.payload;
+                        return updated;
+                    }
+
+                    return item;
+                })
+            };
 
         default:
             return state;

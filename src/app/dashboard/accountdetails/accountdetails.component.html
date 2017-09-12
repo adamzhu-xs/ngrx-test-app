@@ -1,3 +1,15 @@
 <p>
-  accountdetails works!
+    accountdetails works!
 </p>
+
+<div *ngIf="detailsError$ | async">
+    Got error - {{detailsError$.code}}
+</div>
+
+<div *ngIf="detailsRetrived$ | async">
+    <div *ngIf="account$ | async">
+        <div>{{(account$ | async)?.name}}</div>
+        <div>{{(account$ | async)?.accountNo}}</div>
+        <div>{{(account$ | async)?.balance}}</div>
+    </div>
+</div>
