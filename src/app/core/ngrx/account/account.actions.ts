@@ -10,7 +10,7 @@ export const selectAccountsErr = createSelector(selectAccounts, (state: IAppData
 export const selectAccountById = (selectedId) => {
     return createSelector(
         selectAccountsOk,
-        (entities) => entities.find((item) => item.id === selectedId)
+        (entities) => !entities ? null : entities.find((item) => item.id === selectedId)
     );
 };
 
@@ -24,7 +24,7 @@ export const ACCOUNT_LOAD_DETAILS_ERR = 'ACCOUNT_LOAD_DETAILS_ERR';
 export class LoadAccount implements Action {
     public readonly type = ACCOUNT_LOAD;
 
-    constructor() { }
+    constructor(public onCompleteActions?: Action[]) { }
 }
 
 export class LoadAccountOk implements Action {

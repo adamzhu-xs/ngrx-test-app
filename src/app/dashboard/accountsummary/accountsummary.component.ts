@@ -13,13 +13,13 @@ import { LoadAccount } from '../../core/ngrx/account/account.actions';
     styleUrls: ['./accountsummary.component.scss']
 })
 export class AccountsummaryComponent implements OnInit {
-    accounts$: Observable<IAccount[]> = this.store.select('account', 'data');
-    error$ = this.store.select('account', 'error');
+    accounts$: Observable<IAccount[]> = this.store$.select('account', 'data');
+    error$ = this.store$.select('account', 'error');
 
-    constructor(private store: Store<IAppState>) { }
+    constructor(private store$: Store<IAppState>) { }
 
     ngOnInit() {
-        this.store.dispatch(new LoadAccount());
+        this.store$.dispatch(new LoadAccount());
     }
 
 }

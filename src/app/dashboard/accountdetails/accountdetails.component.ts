@@ -23,7 +23,7 @@ export class AccountdetailsComponent implements OnInit {
 
     constructor(
         private route: ActivatedRoute,
-        private store: Store<IAppState>
+        private store$: Store<IAppState>
     ) {
 
     }
@@ -33,15 +33,15 @@ export class AccountdetailsComponent implements OnInit {
             this.id = params['id'];
 
             const selector = selectAccountById(this.id);
-            this.account$ = this.store.select(selector);
+            this.account$ = this.store$.select(selector);
 
-            const detailsRetrived = createSelector(selector, (acct: IAccount) => acct.detailsRetrived);
-            this.detailsRetrived$ = this.store.select(detailsRetrived);
+            const detailsRetrived = createSelector(selector, (acct: IAccount) => !acct ? null : acct.detailsRetrived);
+            this.detailsRetrived$ = this.store$.select(detailsRetrived);
 
-            const detailsError = createSelector(selector, (acct: IAccount) => acct.detailsError);
-            this.detailsError$ = this.store.select(detailsError);
+            const detailsError = createSelector(selector, (acct: IAccount) => !acct ? null : acct.detailsError);
+            this.detailsError$ = this.store$.select(detailsError);
 
-            this.store.dispatch(new AccountDetails({ id: this.id }));
+            this.store$.dispatch(new AccountDetails({ id: this.id }));
         });
     }
 
