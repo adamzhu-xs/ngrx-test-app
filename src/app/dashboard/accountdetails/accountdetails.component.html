@@ -3,7 +3,7 @@
 </p>
 
 <div *ngIf="detailsError$ | async">
-    Got error - {{detailsError$.code}}
+    Got error - {{(detailsError$ | async)?.code}}
 </div>
 
 <div *ngIf="detailsRetrived$ | async">

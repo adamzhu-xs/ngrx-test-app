@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { IAppState } from '../../core/ngrx/IAppState';
 import { IAccount } from '../../core/ngrx/account/IAccount';
-import { AccountDetails, selectAccountById } from '../../core/ngrx/account/account.actions';
+import { AccountDetails, selectAccountsOk, selectAccountById } from '../../core/ngrx/account/account.actions';
 
 @Component({
     selector: 'app-accountdetails',
@@ -38,7 +38,17 @@ export class AccountdetailsComponent implements OnInit {
             const detailsRetrived = createSelector(selector, (acct: IAccount) => !acct ? null : acct.detailsRetrived);
             this.detailsRetrived$ = this.store$.select(detailsRetrived);
 
-            const detailsError = createSelector(selector, (acct: IAccount) => !acct ? null : acct.detailsError);
+            const detailsError = createSelector(selectAccountsOk, selector,
+                (accounts: IAccount[], acct: IAccount) => {
+                    if (!!accounts && !acct) {
+                        return {
+                            code: 'WRONG_ID',
+                            msg: 'account id does not exist'
+                        };
+                    }
+
+                    return !acct ? null : acct.detailsError;
+                });
             this.detailsError$ = this.store$.select(detailsError);
 
             this.store$.dispatch(new AccountDetails({ id: this.id }));
