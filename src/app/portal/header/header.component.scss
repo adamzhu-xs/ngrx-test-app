@@ -1,0 +1,12 @@
+nav {
+    float: left;
+}
+
+nav a,
+nav button {
+    margin: 1rem;
+}
+
+nav a.active {
+    color: red;
+}

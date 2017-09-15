@@ -1,22 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Routes, RouterModule } from '@angular/router';
 
-import { DashboardRoutingModule } from './dashboard-routing.module';
-
-import { AccountsummaryComponent } from './accountsummary/accountsummary.component';
-import { AccountdetailsComponent } from './accountdetails/accountdetails.component';
+import { AccountsummaryModule } from './accountsummary/accountsummary.module';
+import { AccountdetailsModule } from './accountdetails/accountdetails.module';
 
 @NgModule({
     imports: [
         CommonModule,
-        DashboardRoutingModule
+        AccountsummaryModule,
+        AccountdetailsModule
     ],
-    declarations: [
-        AccountsummaryComponent,
-        AccountdetailsComponent
-    ],
+    declarations: [],
     providers: []
 })
-export class DashboardModule {
-
-}
+export class DashboardModule { }

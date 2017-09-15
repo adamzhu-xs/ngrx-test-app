@@ -5,9 +5,8 @@ import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
-
+import { PortalModule } from './portal/portal.module';
 import { AppComponent } from './app.component';
-import { DashboardModule } from './dashboard/dashboard.module';
 
 @NgModule({
     declarations: [
@@ -18,11 +17,9 @@ import { DashboardModule } from './dashboard/dashboard.module';
         HttpModule,
         AppRoutingModule,
         CoreModule,
-        DashboardModule,
+        PortalModule
     ],
     providers: [],
     bootstrap: [AppComponent]
 })
-export class AppModule {
-
-}
+export class AppModule { }

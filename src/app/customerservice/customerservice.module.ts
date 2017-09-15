@@ -1,21 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { CustomerServiceRoutingModule } from './customerservice-routing.module';
 
-import { OrdercheckComponent } from './ordercheck/ordercheck.component';
-import { OrderstatementComponent } from './orderstatement/orderstatement.component';
+import { OrdercheckModule } from './ordercheck/ordercheck.module';
+import { OrderstatementModule } from './orderstatement/orderstatement.module';
 
 @NgModule({
     imports: [
         CommonModule,
-        CustomerServiceRoutingModule
+        OrdercheckModule,
+        OrderstatementModule
     ],
-    declarations: [
-        OrdercheckComponent,
-        OrderstatementComponent
-    ]
+    declarations: []
 })
-export class CustomerServiceModule {
-
-}
+export class CustomerServiceModule { }

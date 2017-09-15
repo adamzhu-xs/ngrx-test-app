@@ -7,35 +7,27 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { IAppState } from './IAppState';
+
+import { contentReducer } from './content/content.reducers';
 import { userReducer } from './user/user.reducers';
 import { accountReducer } from './account/account.reducers';
 
+import { ContentEffects } from './content/content.effects';
 import { UserEffects } from './user/user.effects';
 import { AccountEffects } from './account/account.effects';
 
 import { environment } from '../../../environments/environment';
 
-export const initialState: IAppState = {
-    authenticated: false,
-    user: {},
-    account: {},
-    customerservice: {
-        ordercheck: {}
-    }
-};
-
-function getInitialState() {
-    return initialState;
-}
-
 @NgModule({
     imports: [
         CommonModule,
         StoreModule.forRoot({
+            contents: contentReducer,
             user: userReducer,
             account: accountReducer
         }),
         EffectsModule.forRoot([
+            ContentEffects,
             UserEffects,
             AccountEffects
         ]),

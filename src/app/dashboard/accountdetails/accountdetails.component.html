@@ -1,5 +1,5 @@
 <p>
-    accountdetails works!
+    {{(content$ | async)?.title}}
 </p>
 
 <div *ngIf="detailsError$ | async">

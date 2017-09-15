@@ -1,1 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import './styles.variables';
+html,
+body {
+    font-size: 30px;
+}
+
+button {
+    font-size: 1rem;
+}
+
+
+/* */
+
+@each $name,
+$color,
+$bg-color,
+$bg-secondary-color in $segments {
+    .#{$name} .colored,
+    .#{$name} .active>a.highlight-colored,
+    .#{$name} .focused>a.highlight-colored {
+        color: $color;
+    }
+    .#{$name} .border-colored {
+        border-color: $color;
+    }
+    .#{$name} .bg-colored {
+        background-color: $bg-color;
+    }
+    .#{$name} .bg-secondary-colored {
+        background-color: $bg-secondary-color;
+    }
+}
+
+
+/* */
+
+.clearfix {
+    &::after {
+        display: block;
+        content: "";
+        clear: both;
+    }
+}

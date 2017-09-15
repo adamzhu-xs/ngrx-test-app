@@ -1,0 +1,28 @@
+{
+    "title": "PL Order Check",
+    "fields": {
+        "quantity": {
+            "label": "Quantity",
+            "maxLength": "40",
+            "errorMsges": {
+                "required": "Please enter payment title"
+            }
+        },
+        "nextBtn": {
+            "label": "Next"
+        },
+        "confirmBtn": {
+            "label": "Confirm"
+        },
+        "anotherBtn": {
+            "label": "Order one more"
+        }
+    },
+    "labels": {
+        "deliveryTime": "Delivery Time",
+        "infoInput": "Order check book for your account",
+        "infoRecap": "Pls review the check book details",
+        "infoConfirm": "Your check book will be delivery to you soon",
+        "infoError": "I'm sorry, we are experience some temp delay."
+    }
+}

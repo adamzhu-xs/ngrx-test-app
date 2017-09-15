@@ -5,8 +5,10 @@ import { Store, createSelector } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 
 import { IAppState } from '../../core/ngrx/IAppState';
+import { ISubAppContent } from '../../core/ngrx/content/IContent';
 import { IAccount } from '../../core/ngrx/account/IAccount';
 import { AccountDetails, selectAccountsOk, selectAccountById } from '../../core/ngrx/account/account.actions';
+import { LoadContent, UnLoadContent } from '../../core/ngrx/content/content.actions';
 
 @Component({
     selector: 'app-accountdetails',
@@ -16,6 +18,13 @@ import { AccountDetails, selectAccountsOk, selectAccountById } from '../../core/
 export class AccountdetailsComponent implements OnInit {
     id: string;
     private sub: any;
+
+    subappId = {
+        moduleId: 'dashboard',
+        appId: 'accountdetails'
+    };
+
+    content$: Observable<ISubAppContent> = this.store$.select('contents', 'dashboard_accountdetails', 'data');
 
     account$: Observable<IAccount>;
     detailsRetrived$: Observable<any>;
@@ -29,6 +38,8 @@ export class AccountdetailsComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.store$.dispatch(new LoadContent(this.subappId));
+
         this.sub = this.route.params.subscribe(params => {
             this.id = params['id'];
 
@@ -53,6 +64,10 @@ export class AccountdetailsComponent implements OnInit {
 
             this.store$.dispatch(new AccountDetails({ id: this.id }));
         });
+    }
+
+    ngOnDestroy() {
+        this.store$.dispatch(new UnLoadContent(this.subappId));
     }
 
 }

@@ -1,9 +1,5 @@
-<nav>
-    <a routerLink="auth/signin" routerLinkActive="active">signin</a>
-    <a routerLink="auth/register" routerLinkActive="active">register</a>
-    <a routerLink="dashboard/accountsummary" routerLinkActive="active">accountsummary</a>
-    <a routerLink="customerservice/ordercheck" routerLinkActive="active">ordercheck</a>
-    <a routerLink="customerservice/orderstatement" routerLinkActive="active">orderstatement</a>
-</nav>
+<div class="{{segment}}">
+    <app-header></app-header>
 
-<router-outlet></router-outlet>
+    <router-outlet></router-outlet>
+</div>

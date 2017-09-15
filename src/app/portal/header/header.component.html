@@ -1,0 +1,16 @@
+<div class="clearfix">
+    <nav>
+        <a *ngIf="!(authenticated$ | async)" routerLink="auth/signin" routerLinkActive="active" class="colored">signin</a>
+        <a *ngIf="!(authenticated$ | async)" routerLink="auth/register" routerLinkActive="active" class="colored">register</a>
+        <a *ngIf="authenticated$ | async" routerLink="auth/signout" routerLinkActive="active" class="colored">signout</a >
+
+        <a routerLink="app/dashboard/accountsummary" routerLinkActive="active" class="colored">accountsummary</a>
+        <a routerLink="app/customerservice/ordercheck" routerLinkActive="active" class="colored">ordercheck</a>
+        <a routerLink="app/customerservice/orderstatement" routerLinkActive="active" class="colored">orderstatement</a>
+    </nav>
+
+    <nav>
+        <button (click)="switchLocale('en')" >english</button>
+        <button (click)="switchLocale('pl')" >polish</button>
+    </nav>
+</div>

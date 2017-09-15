@@ -1,3 +1,7 @@
 <p>
-  orderstatement works!
+    {{(content$ | async)?.title}}
 </p>
+
+<app-input *ngIf="showInput"></app-input>
+<app-recap *ngIf="showRecap"></app-recap>
+<app-confirm *ngIf="showConfirm"></app-confirm>

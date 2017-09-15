@@ -1,3 +1,10 @@
 <p>
-  ordercheck works!
+    {{(content$ | async)?.title}}
 </p>
+
+<div [ngSwitch]="currentPage">
+    <app-input *ngSwitchCase="'input'" [inputRes]="inputRes" [content]="content$ | async"></app-input>
+    <app-recap *ngSwitchCase="'recap'" [recapRes]="recapRes" [content]="content$ | async"></app-recap>
+    <app-confirm *ngSwitchCase="'confirm'" [confirmRes]="confirmRes" [content]="content$ | async"></app-confirm>
+    <app-error *ngSwitchCase="'error'" [error]="error" [content]="content$ | async"></app-error>
+  </div>

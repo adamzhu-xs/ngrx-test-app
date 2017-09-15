@@ -1,4 +1,7 @@
 
+import { IContent, ISubAppContent } from './content/IContent';
+import { IUser } from './user/IUser';
+
 export interface IMeta {
     loadedTimestamp?: Date;
 }
@@ -11,15 +14,19 @@ export interface IError {
 
 export interface IAppData {
     meta?: IMeta;
+    content?: ISubAppContent;
     data?: any;
     error?: IError;
 }
 
 export interface IAppState {
-    authenticated: boolean;
-    user?: IAppData;
+    contents?: IContent;
+    user?: IUser;
     account?: IAppData;
-    customerservice?: {
-        ordercheck: IAppData
-    };
+
+    auth_signin?: IAppData,
+    auth_signout?: IAppData,
+
+    customerservice_ordercheck?: IAppData,
+    customerservice_orderstatement?: IAppData
 }

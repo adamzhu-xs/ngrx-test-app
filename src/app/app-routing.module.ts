@@ -1,23 +1,29 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, CanActivate } from '@angular/router';
+import { CanActivateViaAuthGuard } from './core/guards/CanActivateViaAuthGuard';
 
 export const routes: Routes = [
     {
         path: '',
-        redirectTo: '',
+        redirectTo: 'auth/signin',
         pathMatch: 'full'
-    },
-    {
+    }, {
         path: 'auth',
         loadChildren: 'app/auth/auth.module#AuthModule'
     },
-    /*{
-        path: 'dashboard',
-        loadChildren: 'app/dashboard/dashboard.module#DashboardModule'
-    },*/
     {
-        path: 'customerservice',
-        loadChildren: 'app/customerservice/customerservice.module#CustomerServiceModule'
+        path: 'app',
+        canActivate: [CanActivateViaAuthGuard],
+        children: [
+            {
+                path: 'dashboard',
+                loadChildren: 'app/dashboard/dashboard.module#DashboardModule'
+            },
+            {
+                path: 'customerservice',
+                loadChildren: 'app/customerservice/customerservice.module#CustomerServiceModule'
+            }
+        ]
     }
 ];
 
@@ -25,6 +31,4 @@ export const routes: Routes = [
     imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule]
 })
-export class AppRoutingModule {
-
-}
+export class AppRoutingModule { }

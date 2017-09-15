@@ -1,0 +1,37 @@
+/* segment primary colors */
+
+$citi-blue-color: #056dae;
+$citi-business-color: #056dae;
+$citi-priority-color: #0e2a48;
+$citi-gold-color: #b4985b;
+$citi-gold-priority-color: #b4975a;
+
+/* segment primary background colors */
+
+$citi-blue-bg-color: #056dae;
+$citi-business-bg-color: #056dae;
+$citi-priority-bg-color: #0e2a48;
+$citi-gold-bg-color: #b4985b;
+$citi-gold-priority-bg-color: #564639;
+
+/* segment secondary background colors */
+
+$citi-blue-bg-secondary-color: #002A54;
+$citi-business-bg-secondary-color: #002A54;
+$citi-priority-bg-secondary-color: #0E2A48;
+$citi-gold-bg-secondary-color: #333;
+$citi-gold-priority-bg-secondary-color: #564639;
+
+/* segments */
+
+$segments: ('citi-blue', $citi-blue-color, $citi-blue-bg-color, $citi-blue-bg-secondary-color),
+('citi-business', $citi-business-color, $citi-business-bg-color, $citi-business-bg-secondary-color),
+('citi-priority', $citi-priority-color, $citi-priority-bg-color, $citi-priority-bg-secondary-color),
+('citi-gold', $citi-gold-color, $citi-gold-bg-color, $citi-gold-bg-secondary-color),
+('citi-gold-priority', $citi-gold-priority-bg-color, $citi-gold-priority-color, $citi-gold-priority-bg-secondary-color);
+
+/* base setup */
+
+$base-font: 1rem;
+$big-font: 1.5rem;
+$small-font: 0.85rem;

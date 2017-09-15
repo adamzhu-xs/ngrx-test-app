@@ -1,0 +1,36 @@
+{
+    "authenticated": true,
+    "userId": "test",
+    "firstName": "MIŚ MASS",
+    "lastName": "RABATEK",
+    "namePrefix": "PAN",
+    "fullName": "MIŚ MASS RABATEK",
+    "sessionID": "170516100617017161000007",
+    "sex": "M",
+    "lastLoginDateTime": "2017-05-15T05:49:53",
+    "currentBusinessDate": "2017-06-30",
+    "segment": "citi-gold",
+    "safetyConfig": {
+        "requiredMajorVersion": 9,
+        "requiredMinorVersion": 0,
+        "requiredRevision": 124,
+        "windowName": "92856e805d132985",
+        "sessionCheckLegacy": "true",
+        "honeyPot": "b853e7dcb12da65",
+        "csrfToken": "R3TOKQ0K",
+        "cookieDeleteEnabled": false
+    },
+    "localeConfig": {
+        "language": "en",
+        "country": "PL"
+    },
+    "tutorialVersion": "7",
+    "primaryCurrency": "PLN",
+    "resident": true,
+    "profileImage": {
+        "type": "default",
+        "imageName": "default"
+    },
+    "investmentProfile": "P2",
+    "investmentProfileExpireDate": "2027-06-16"
+}

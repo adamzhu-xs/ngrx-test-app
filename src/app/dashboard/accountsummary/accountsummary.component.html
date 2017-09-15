@@ -1,5 +1,5 @@
 <p>
-    accountsummary works!
+    {{(content$ | async)?.title}}
 </p>
 
 <div *ngIf="error$ | async">
@@ -8,7 +8,8 @@
 
 <div *ngIf="accounts$ | async">
     <div *ngFor="let acct of accounts$ | async">
-        <a routerLink="/dashboard/accountdetails/{{acct.id}}" routerLinkActive="active">{{acct.name}}</a>
-        <span>{{acct.accountNo}}</span>
+        <a routerLink="/app/dashboard/accountdetails/{{acct.id}}"
+            routerLinkActive="active" class="colored">{{acct.name}}</a>
+        <span class="account-no">{{acct.accountNo}}</span>
     </div>
 </div>
