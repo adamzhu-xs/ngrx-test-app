@@ -22,7 +22,7 @@ export class SignoutComponent implements OnInit, OnDestroy {
         appId: 'signout'
     };
 
-    content: ISubAppContent;
+    content: any;
 
     constructor(
         private store$: Store<IAppState>,

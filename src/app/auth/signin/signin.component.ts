@@ -22,7 +22,7 @@ export class SigninComponent implements OnInit, OnDestroy {
         appId: 'signin'
     };
 
-    content: ISubAppContent;
+    content: any;
 
     constructor(
         private store$: Store<IAppState>,
