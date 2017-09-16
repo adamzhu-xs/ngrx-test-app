@@ -1,0 +1,19 @@
+.transaction {
+    padding: 0.5rem;
+    border-bottom: 1px solid grey;
+}
+
+.date {
+    width: 30%;
+    float: left;
+}
+
+.amount {
+    width: 20%;
+    float: left;
+}
+
+.desc {
+    width: 50%;
+    float: left;
+}

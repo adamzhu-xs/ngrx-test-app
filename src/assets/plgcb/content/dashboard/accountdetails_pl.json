@@ -1,3 +1,6 @@
 {
-    "title": "PL Account Details"
+    "title": "PL Account Details",
+    "date": "Date",
+    "amount": "Amount",
+    "desc": "Description"
 }

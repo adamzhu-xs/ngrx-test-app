@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { NgrxModule } from './ngrx/ngrx.module';
 import { SigninComponent } from './signin.component';
+import { InputComponent } from './pages/input/input.component';
 
 @NgModule({
     imports: [
@@ -14,6 +15,6 @@ import { SigninComponent } from './signin.component';
             component: SigninComponent
         }])
     ],
-    declarations: [SigninComponent]
+    declarations: [SigninComponent, InputComponent]
 })
 export class SigninModule { }

@@ -1,15 +1,14 @@
 <p>
     {{(content$ | async)?.title}}
 </p>
-
-<div *ngIf="detailsError$ | async">
-    Got error - {{(detailsError$ | async)?.code}}
-</div>
-
-<div *ngIf="detailsRetrived$ | async">
-    <div *ngIf="account$ | async">
-        <div>{{(account$ | async)?.name}}</div>
-        <div>{{(account$ | async)?.accountNo}}</div>
-        <div>{{(account$ | async)?.balance}}</div>
+<div class="wrapper">
+    <div *ngIf="accountError">
+        Got error - {{accountError?.code}}
     </div>
+    <app-details-panel *ngIf="account" [account]="account" [content]="content$ | async"></app-details-panel>
+
+    <div *ngIf="transactionsError">
+        Got error - {{transactionsError?.code}}
+    </div>
+    <app-transactions-panel *ngIf="transactions" [transactions]="transactions" [content]="content$ | async"></app-transactions-panel>
 </div>

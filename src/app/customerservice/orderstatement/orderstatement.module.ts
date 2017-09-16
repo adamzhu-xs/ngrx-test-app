@@ -7,6 +7,8 @@ import { InputComponent } from './pages/input/input.component';
 import { RecapComponent } from './pages/recap/recap.component';
 import { ConfirmComponent } from './pages/confirm/confirm.component';
 
+import { OrderStatementService } from './orderstatement.services';
+
 @NgModule({
     imports: [
         CommonModule,
@@ -20,6 +22,7 @@ import { ConfirmComponent } from './pages/confirm/confirm.component';
         InputComponent,
         RecapComponent,
         ConfirmComponent
-    ]
+    ],
+    providers: [OrderStatementService]
 })
 export class OrderstatementModule { }

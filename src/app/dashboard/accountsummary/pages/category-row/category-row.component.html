@@ -1,0 +1,18 @@
+<div class="category">
+    <div class="clearfix category-row" (click)="toggleCategory(category.type)">
+        <div class="left">
+            {{content.categoryNames[category.type]}} ({{category.count}})
+        </div>
+        <div class="right">
+            {{category.balance | number:'3.2'}}
+        </div>
+        <div class="icon">
+            <div *ngIf="opened">-</div>
+            <div *ngIf="!opened">+</div>
+        </div>
+    </div>
+    <div *ngIf="accounts && opened">
+        <app-account-row *ngFor="let acct of accounts" [account]="acct" [content]="content"></app-account-row>
+    </div>
+    <div *ngIf="error && opened">Error</div>
+</div>

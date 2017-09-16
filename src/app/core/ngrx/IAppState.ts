@@ -14,7 +14,6 @@ export interface IError {
 
 export interface IAppData {
     meta?: IMeta;
-    content?: ISubAppContent;
     data?: any;
     error?: IError;
 }
@@ -24,9 +23,6 @@ export interface IAppState {
     user?: IUser;
     account?: IAppData;
 
-    auth_signin?: IAppData,
-    auth_signout?: IAppData,
-
-    customerservice_ordercheck?: IAppData,
-    customerservice_orderstatement?: IAppData
+    auth_signin?: IAppData;
+    auth_signout?: IAppData;
 }

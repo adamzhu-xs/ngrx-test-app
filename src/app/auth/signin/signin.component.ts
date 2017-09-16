@@ -30,7 +30,7 @@ export class SigninComponent implements OnInit, OnDestroy {
     ) {
         this.store$.select('contents', 'auth_signin', 'data')
             .subscribe((data) => {
-                this.content = data
+                this.content = data;
             });
 
         this.store$.select('auth_signin', 'data', 'authenticated')

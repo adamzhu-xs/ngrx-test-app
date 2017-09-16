@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Store, createSelector } from '@ngrx/store';
@@ -10,14 +10,14 @@ import { IAccount } from '../../core/ngrx/account/IAccount';
 import { AccountDetails, selectAccountsOk, selectAccountById } from '../../core/ngrx/account/account.actions';
 import { LoadContent, UnLoadContent } from '../../core/ngrx/content/content.actions';
 
+import { AccountDetailsService } from './accountdetails.services';
+
 @Component({
     selector: 'app-accountdetails',
     templateUrl: './accountdetails.component.html',
     styleUrls: ['./accountdetails.component.scss']
 })
-export class AccountdetailsComponent implements OnInit {
-    id: string;
-    private sub: any;
+export class AccountdetailsComponent implements OnInit, OnDestroy {
 
     subappId = {
         moduleId: 'dashboard',
@@ -26,13 +26,18 @@ export class AccountdetailsComponent implements OnInit {
 
     content$: Observable<ISubAppContent> = this.store$.select('contents', 'dashboard_accountdetails', 'data');
 
-    account$: Observable<IAccount>;
-    detailsRetrived$: Observable<any>;
-    detailsError$: Observable<any>;
+    id: string;
+
+    account: any;
+    accountError: any;
+
+    transactions: any;
+    transactionsError: any;
 
     constructor(
         private route: ActivatedRoute,
-        private store$: Store<IAppState>
+        private store$: Store<IAppState>,
+        private service: AccountDetailsService
     ) {
 
     }
@@ -40,29 +45,22 @@ export class AccountdetailsComponent implements OnInit {
     ngOnInit() {
         this.store$.dispatch(new LoadContent(this.subappId));
 
-        this.sub = this.route.params.subscribe(params => {
+        this.route.params.subscribe(params => {
             this.id = params['id'];
 
-            const selector = selectAccountById(this.id);
-            this.account$ = this.store$.select(selector);
-
-            const detailsRetrived = createSelector(selector, (acct: IAccount) => !acct ? null : acct.detailsRetrived);
-            this.detailsRetrived$ = this.store$.select(detailsRetrived);
-
-            const detailsError = createSelector(selectAccountsOk, selector,
-                (accounts: IAccount[], acct: IAccount) => {
-                    if (!!accounts && !acct) {
-                        return {
-                            code: 'WRONG_ID',
-                            msg: 'account id does not exist'
-                        };
-                    }
-
-                    return !acct ? null : acct.detailsError;
+            this.service.getDetails(this.id)
+                .subscribe(res => {
+                    this.account = res;
+                }, err => {
+                    this.accountError = err;
                 });
-            this.detailsError$ = this.store$.select(detailsError);
 
-            this.store$.dispatch(new AccountDetails({ id: this.id }));
+            this.service.getTranactions(this.id, '', '')
+                .subscribe(res => {
+                    this.transactions = res.transactions;
+                }, err => {
+                    this.transactionsError = err;
+                });
         });
     }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
@@ -15,7 +15,7 @@ import { RefreshProfile } from '../../core/ngrx/user/user.actions';
     templateUrl: './signout.component.html',
     styleUrls: ['./signout.component.scss']
 })
-export class SignoutComponent implements OnInit {
+export class SignoutComponent implements OnInit, OnDestroy {
 
     subappId = {
         moduleId: 'auth',
@@ -30,7 +30,7 @@ export class SignoutComponent implements OnInit {
     ) {
         this.store$.select('contents', 'auth_signout', 'data')
             .subscribe((data) => {
-                this.content = data
+                this.content = data;
             });
 
         this.store$.select('auth_signout', 'data', 'sessionDuration')

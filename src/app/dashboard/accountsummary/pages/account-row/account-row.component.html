@@ -1,0 +1,11 @@
+<div class="clearfix account-row">
+    <div class="left">
+        <a routerLink="/app/dashboard/accountdetails/{{account.id}}" routerLinkActive="active" class="colored">
+            {{account.name}}
+        </a>
+        <div class="account-no">{{account.accountNo}}</div>
+    </div>
+    <div class="right">
+        {{account.balance | number:'3.2'}}
+    </div>
+</div>

@@ -11,7 +11,7 @@ const initialState: IAppData = {
         authenticated: false
     },
     error: null
-}
+};
 
 export function signoutReducer(state: IAppData = initialState, action: SignoutAction): IAppData {
     switch (action.type) {

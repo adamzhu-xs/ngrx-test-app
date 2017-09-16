@@ -1,0 +1,10 @@
+<div *ngIf="transactions" class="transaction clearfix">
+    <div class="date">{{content?.date}}</div>
+    <div class="amount">{{content?.amount}}</div>
+    <div class="desc">{{content?.desc}}</div>
+</div>
+<div *ngFor="let trxn of transactions" class="transaction clearfix">
+    <div class="date">{{trxn.date}}</div>
+    <div class="amount">{{trxn.amount | number:'3.2'}}</div>
+    <div class="desc">{{trxn.desc}}</div>
+</div>

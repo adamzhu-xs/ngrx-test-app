@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
@@ -7,12 +7,14 @@ import { IAppState } from '../../core/ngrx/IAppState';
 import { ISubAppContent } from '../../core/ngrx/content/IContent';
 import { LoadContent, UnLoadContent } from '../../core/ngrx/content/content.actions';
 
+import { OrderStatementService } from './orderstatement.services';
+
 @Component({
     selector: 'app-orderstatement',
     templateUrl: './orderstatement.component.html',
     styleUrls: ['./orderstatement.component.scss']
 })
-export class OrderstatementComponent implements OnInit {
+export class OrderstatementComponent implements OnInit, OnDestroy {
 
     subappId = {
         moduleId: 'customerservice',
@@ -26,7 +28,8 @@ export class OrderstatementComponent implements OnInit {
     content$: Observable<ISubAppContent> = this.store$.select('contents', 'customerservice_orderstatement', 'data');
 
     constructor(
-        private store$: Store<IAppState>
+        private store$: Store<IAppState>,
+        private service: OrderStatementService
     ) { }
 
     ngOnInit() {

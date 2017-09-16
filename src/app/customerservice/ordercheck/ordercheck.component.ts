@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
@@ -14,7 +14,7 @@ import { LoadContent, UnLoadContent } from '../../core/ngrx/content/content.acti
     templateUrl: './ordercheck.component.html',
     styleUrls: ['./ordercheck.component.scss']
 })
-export class OrdercheckComponent implements OnInit {
+export class OrdercheckComponent implements OnInit, OnDestroy {
 
     subappId = {
         moduleId: 'customerservice',

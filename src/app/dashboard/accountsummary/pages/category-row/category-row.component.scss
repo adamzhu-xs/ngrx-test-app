@@ -1,0 +1,31 @@
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.icon {
+    position: absolute;
+    top: 48%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 2rem;
+    text-align: center;
+}
+
+.category-row {
+    padding: 1rem 2rem 1rem 1rem;
+    position: relative;
+    border: 1px solid grey;
+    margin-top: 1rem;
+    cursor: pointer;
+    &:hover {
+        background-color: #eee;
+    }
+}
+
+.category {
+    width: 50%;
+}

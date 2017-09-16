@@ -2,14 +2,12 @@
     {{(content$ | async)?.title}}
 </p>
 
-<div *ngIf="error$ | async">
-    Got error - {{error$.code}}
+<div *ngIf="error">
+    Got error - {{error.code}}
 </div>
 
-<div *ngIf="accounts$ | async">
-    <div *ngFor="let acct of accounts$ | async">
-        <a routerLink="/app/dashboard/accountdetails/{{acct.id}}"
-            routerLinkActive="active" class="colored">{{acct.name}}</a>
-        <span class="account-no">{{acct.accountNo}}</span>
+<div *ngIf="categories">
+    <div *ngFor="let category of categories">
+        <app-category-row [category]="category" [content]="content$ | async"></app-category-row>
     </div>
 </div>

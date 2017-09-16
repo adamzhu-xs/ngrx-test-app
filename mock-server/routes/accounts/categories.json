@@ -1,0 +1,14 @@
+{
+    "categories": [
+        {
+            "type": "CASA",
+            "count": 2,
+            "balance": 2100
+        },
+        {
+            "type": "INV",
+            "count": 2,
+            "balance": 5500
+        }
+    ]
+}
