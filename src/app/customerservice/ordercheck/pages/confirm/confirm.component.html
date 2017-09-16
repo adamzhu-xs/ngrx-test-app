@@ -1,5 +1,7 @@
 <p>
-    {{content.labels.infoConfirm}}
+    {{content?.labels.infoConfirm}}
 </p>
-
-<button>{{content.fields.anotherBtn.label}}</button>
+<div>
+    {{content?.labels.deliveryTime}} {{confirmRes?.deliveryTime}}
+</div>
+<button (click)="anotherOrder()">{{content?.fields.anotherBtn.label}}</button>

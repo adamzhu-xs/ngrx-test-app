@@ -1,5 +1,8 @@
 <p>
     {{content.labels.infoRecap}}
 </p>
+<div>
+    {{content?.fields.quantity.label}} {{recapRes.quantity}}
+</div>
 
-<button>{{content.fields.confirmBtn.label}}</button>
+<button (click)="submitRecap()">{{content.fields.confirmBtn.label}}</button>

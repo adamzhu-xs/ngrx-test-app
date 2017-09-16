@@ -1,10 +1,10 @@
 <div class="category">
     <div class="clearfix category-row" (click)="toggleCategory(category.type)">
         <div class="left">
-            {{content.categoryNames[category.type]}} ({{category.count}})
+            {{content?.categoryNames[category.type]}} ({{category.count}})
         </div>
         <div class="right">
-            {{category.balance | number:'3.2'}}
+            {{category?.balance | number:'3.2'}}
         </div>
         <div class="icon">
             <div *ngIf="opened">-</div>

@@ -1,5 +1,11 @@
 <p>
-    {{content.labels.infoInput}}
+    {{content?.labels.infoInput}}
 </p>
+<form #f="ngForm" (ngSubmit)="submit(f.value)" *ngIf="content?.fields; let fields">
+    <div>
+        {{fields.quantity.label}}
+        <input type="input" name="quantity" maxlength="{{fields.quantity.maxLength}}" ngModel/>
+    </div>
 
-<button>{{content.fields.nextBtn.label}}</button>
+    <button type="submit">{{fields.nextBtn.label}}</button>
+</form>

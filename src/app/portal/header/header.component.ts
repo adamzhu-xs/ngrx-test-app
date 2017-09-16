@@ -15,6 +15,7 @@ import { SwitchLocale } from '../../core/ngrx/content/content.actions';
 export class HeaderComponent implements OnInit {
 
     authenticated$: Observable<boolean> = this.store$.select('user', 'authenticated');
+    currentLocale$: Observable<string> = this.store$.select('contents', 'currentLocale');
 
     constructor(
         private store$: Store<IAppState>,

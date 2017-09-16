@@ -23,10 +23,14 @@ export class OrdercheckComponent implements OnInit, OnDestroy {
 
     currentPage = '';
 
+    inputData: any;
     inputRes: any;
+    inputError: any;
+
     recapRes: any;
     confirmRes: any;
     error: any;
+
 
     content$: Observable<ISubAppContent> = this.store$.select('contents', 'customerservice_ordercheck', 'data');
 
@@ -50,6 +54,41 @@ export class OrdercheckComponent implements OnInit, OnDestroy {
 
     ngOnDestroy() {
         this.store$.dispatch(new UnLoadContent(this.subappId));
+    }
+
+    inputAction($event) {
+        this.inputData = $event;
+
+        this.service.preProcess(this.inputData)
+            .subscribe(res => {
+                this.recapRes = res;
+                this.currentPage = 'recap';
+            }, err => {
+                this.error = err;
+                this.currentPage = 'error';
+            });
+    }
+
+    recapAction() {
+        this.service.orderCheck(this.inputData)
+            .subscribe(res => {
+                this.confirmRes = res;
+                this.currentPage = 'confirm';
+            }, err => {
+                this.error = err;
+                this.currentPage = 'error';
+            });
+    }
+
+    confirmAction() {
+        this.inputData = null;
+
+        this.inputRes = null;
+        this.recapRes = null;
+        this.confirmRes = null;
+        this.error = null;
+
+        this.currentPage = 'input';
     }
 
 }

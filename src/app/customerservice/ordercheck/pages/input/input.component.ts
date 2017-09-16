@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { FormControl } from '@angular/forms';
+
 
 @Component({
     selector: 'app-input',
@@ -10,10 +12,18 @@ export class InputComponent implements OnInit {
     @Input() content: any;
     @Input() inputRes: any;
 
+    @Output()
+    submitAction = new EventEmitter();
+
+    quantity = new FormControl('quantity');
+
     constructor() { }
 
     ngOnInit() {
-        console.log('input', this.content, this.inputRes);
+    }
+
+    submit(form) {
+        this.submitAction.emit(form);
     }
 
 }

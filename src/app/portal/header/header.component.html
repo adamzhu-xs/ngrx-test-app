@@ -10,7 +10,7 @@
     </nav>
 
     <nav>
-        <button (click)="switchLocale('en')" >english</button>
-        <button (click)="switchLocale('pl')" >polish</button>
+        <button *ngIf="(currentLocale$ | async) !== 'en'" (click)="switchLocale('en')">english</button>
+        <button *ngIf="(currentLocale$ | async) !== 'pl'" (click)="switchLocale('pl')">polish</button>
     </nav>
 </div>
