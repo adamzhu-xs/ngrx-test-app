@@ -1,10 +1,14 @@
 <p>
     {{content?.labels.infoInput}}
 </p>
-<form #f="ngForm" (ngSubmit)="submit(f.value)" *ngIf="content?.fields; let fields">
-    <div>
+<form *ngIf="content?.fields; let fields" [formGroup]="ordercheckForm" (ngSubmit)="submit(ordercheckForm.value)" autocomplete="off">
+    <div [ngClass]="{
+        'error': !isFieldValid('quantity')
+    }">
         {{fields.quantity.label}}
-        <input type="input" name="quantity" maxlength="{{fields.quantity.maxLength}}" ngModel/>
+        <em *ngIf="!isFieldValid('quantity') && getError('quantity').required">Required</em>
+        <em *ngIf="!isFieldValid('quantity') && getError('quantity').pattern">Numeric only</em>
+        <input type="input" name="quantity" formControlName="quantity" maxlength="{{fields.quantity.maxLength}}" ngModel/>
     </div>
 
     <button type="submit">{{fields.nextBtn.label}}</button>
