@@ -1,15 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-input',
-  templateUrl: './input.component.html',
-  styleUrls: ['./input.component.scss']
+    selector: 'app-input',
+    templateUrl: './input.component.html',
+    styleUrls: ['./input.component.scss']
 })
 export class InputComponent implements OnInit {
 
-  constructor() { }
+    @Input() content: any;
 
-  ngOnInit() {
-  }
+    @Output()
+    signinAction = new EventEmitter();
 
+    userId = new FormControl('userId');
+    password = new FormControl('password');
+
+    constructor() { }
+
+    ngOnInit() {
+    }
+
+    signin(user) {
+        this.signinAction.emit(user);
+    }
 }

@@ -1,5 +1,5 @@
 <p>
-  {{content?.title}}
+    {{(content$ | async)?.title}}
 </p>
 
-<button (click)="signin()" >Signin</button>
+<app-input [content]="content$ | async" (signinAction)="signin($event)"></app-input>

@@ -1,3 +1,6 @@
 {
-    "title": "PL Signin"
+    "title": "PL Signin",
+    "userId": "User Id",
+    "password": "Password",
+    "signinBtn": "Signin"
 }

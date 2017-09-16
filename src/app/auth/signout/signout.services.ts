@@ -12,21 +12,9 @@ export class SignoutService {
         private http: Http
     ) { }
 
-    getLandingConfig() {
+    signout(payload: any) {
         return this.http
-            .get(`${environment.baseUrl}/api/customerservice/ordercheck`)
-            .map((res: Response) => res.json());
-    }
-
-    preProcess(payload: any) {
-        return this.http
-            .post(`${environment.baseUrl}/api/customerservice/ordercheck/validate`, payload)
-            .map((res: Response) => res.json());
-    }
-
-    orderCheck(payload: any) {
-        return this.http
-            .post(`${environment.baseUrl}/api/customerservice/ordercheck`, payload)
+            .post(`${environment.baseUrl}/api/users/${payload.userId}/signout`, payload)
             .map((res: Response) => res.json());
     }
 

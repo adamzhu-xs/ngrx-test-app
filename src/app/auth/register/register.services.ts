@@ -24,7 +24,7 @@ export class RegisterService {
             .map((res: Response) => res.json());
     }
 
-    orderCheck(payload: any) {
+    register(payload: any) {
         return this.http
             .post(`${environment.baseUrl}/api/user/register`, payload)
             .map((res: Response) => res.json());

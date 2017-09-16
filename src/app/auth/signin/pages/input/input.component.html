@@ -1,3 +1,13 @@
-<p>
-  input works!
-</p>
+<form #f="ngForm" (ngSubmit)="signin(f.value)">
+    <div>
+        {{content?.userId}}
+        <input type="input" name="userId" ngModel/>
+    </div>
+
+    <div>
+        {{content?.password}}
+        <input type="password" name="password" ngModel/>
+    </div>
+
+    <button type="submit">{{content?.signinBtn}}</button>
+</form>

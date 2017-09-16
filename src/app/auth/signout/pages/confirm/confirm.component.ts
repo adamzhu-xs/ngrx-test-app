@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-confirm',
-  templateUrl: './confirm.component.html',
-  styleUrls: ['./confirm.component.scss']
+    selector: 'app-confirm',
+    templateUrl: './confirm.component.html',
+    styleUrls: ['./confirm.component.scss']
 })
 export class ConfirmComponent implements OnInit {
 
-  constructor() { }
+    @Input() content: any;
+    @Input() data: any;
 
-  ngOnInit() {
-  }
+    constructor() { }
+
+    ngOnInit() {
+    }
 
 }

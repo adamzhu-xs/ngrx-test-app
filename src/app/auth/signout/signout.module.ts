@@ -6,6 +6,8 @@ import { NgrxModule } from './ngrx/ngrx.module';
 import { SignoutComponent } from './signout.component';
 import { ConfirmComponent } from './pages/confirm/confirm.component';
 
+import { SignoutService } from './signout.services';
+
 @NgModule({
     imports: [
         CommonModule,
@@ -15,6 +17,10 @@ import { ConfirmComponent } from './pages/confirm/confirm.component';
             component: SignoutComponent
         }])
     ],
-    declarations: [SignoutComponent, ConfirmComponent]
+    declarations: [
+        SignoutComponent,
+        ConfirmComponent
+    ],
+    providers: [SignoutService]
 })
 export class SignoutModule { }

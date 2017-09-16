@@ -1,3 +1,4 @@
 <p>
-    {{content?.title}}
+    {{(content$ | async)?.title}}
 </p>
+<app-confirm [content]="(content$ | async)" [data]="data"></app-confirm>

@@ -10,8 +10,6 @@ import { LoadContent, UnLoadContent } from '../../core/ngrx/content/content.acti
 import { Signout } from './ngrx/signout.actions';
 import { RefreshProfile } from '../../core/ngrx/user/user.actions';
 
-import { SignoutService } from './signout.services';
-
 @Component({
     selector: 'app-signout',
     templateUrl: './signout.component.html',
@@ -24,21 +22,22 @@ export class SignoutComponent implements OnInit, OnDestroy {
         appId: 'signout'
     };
 
-    content$: Observable<ISubAppContent> = this.store$.select('contents', 'auth_signout', 'data');
-
-    data: any;
-    error: any;
-
-    userId: string;
+    content: any;
 
     constructor(
         private store$: Store<IAppState>,
-        private router: Router,
-        private service: SignoutService
+        private router: Router
     ) {
-        this.store$.select('user', 'userId')
-            .subscribe((userId) => {
-                this.userId = userId;
+        this.store$.select('contents', 'auth_signout', 'data')
+            .subscribe((data) => {
+                this.content = data;
+            });
+
+        this.store$.select('auth_signout', 'data', 'sessionDuration')
+            .subscribe((duration) => {
+                if (!!duration) {
+                    this.store$.dispatch(new RefreshProfile({}));
+                }
             });
     }
 
@@ -53,14 +52,9 @@ export class SignoutComponent implements OnInit, OnDestroy {
     }
 
     signout() {
-        this.service.signout({
-            userId: this.userId
-        }).subscribe(res => {
-            this.data = res;
-            this.store$.dispatch(new RefreshProfile({}));
-        }, err => {
-            this.error = err;
-        });
+        this.store$.dispatch(new Signout({
+            userId: 'test'
+        }));
     }
 
 }
