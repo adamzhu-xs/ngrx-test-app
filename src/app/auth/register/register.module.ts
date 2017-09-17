@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { CoreModule } from '../../core/core.module';
 
 import { RegisterComponent } from './register.component';
+import { InputComponent } from './pages/input/input.component';
 
 @NgModule({
     imports: [
@@ -15,6 +16,6 @@ import { RegisterComponent } from './register.component';
             component: RegisterComponent
         }])
     ],
-    declarations: [RegisterComponent]
+    declarations: [RegisterComponent, InputComponent]
 })
 export class RegisterModule { }

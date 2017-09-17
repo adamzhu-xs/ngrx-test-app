@@ -6,8 +6,6 @@ import { Observable } from 'rxjs/Observable';
 
 import { IAppState } from '../../portal/ngrx/IAppState';
 import { ISubAppContent } from '../../portal/ngrx/content/IContent';
-import { IAccount } from '../../portal/ngrx/account/IAccount';
-import { AccountDetails, selectAccountsOk, selectAccountById } from '../../portal/ngrx/account/account.actions';
 import { LoadContent, UnLoadContent } from '../../portal/ngrx/content/content.actions';
 
 import { AccountDetailsService } from './accountdetails.services';
