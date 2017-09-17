@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
-import { IAppState } from '../../core/ngrx/IAppState';
+import { IAppState } from '../../portal/ngrx/IAppState';
 
 @Injectable()
 export class CanActivateViaAuthGuard implements CanActivate {

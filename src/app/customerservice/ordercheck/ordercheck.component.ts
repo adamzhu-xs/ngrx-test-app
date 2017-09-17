@@ -5,9 +5,9 @@ import { Observable } from 'rxjs/Observable';
 
 import { OrderCheckService } from './ordercheck.services';
 
-import { IAppState } from '../../core/ngrx/IAppState';
-import { ISubAppContent } from '../../core/ngrx/content/IContent';
-import { LoadContent, UnLoadContent } from '../../core/ngrx/content/content.actions';
+import { IAppState } from '../../portal/ngrx/IAppState';
+import { ISubAppContent } from '../../portal/ngrx/content/IContent';
+import { LoadContent, UnLoadContent } from '../../portal/ngrx/content/content.actions';
 
 @Component({
     selector: 'app-ordercheck',

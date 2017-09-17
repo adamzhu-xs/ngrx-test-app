@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { CoreModule } from '../core/core.module';
+import { NgrxModule } from './ngrx/ngrx.module';
 
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -11,9 +12,16 @@ import { FooterComponent } from './footer/footer.component';
     imports: [
         CommonModule,
         CoreModule,
-        RouterModule
+        RouterModule,
+        NgrxModule
     ],
-    exports: [HeaderComponent, FooterComponent],
-    declarations: [HeaderComponent, FooterComponent]
+    exports: [
+        HeaderComponent,
+        FooterComponent
+    ],
+    declarations: [
+        HeaderComponent,
+        FooterComponent
+    ]
 })
 export class PortalModule { }

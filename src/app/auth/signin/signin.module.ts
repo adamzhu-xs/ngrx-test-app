@@ -4,7 +4,6 @@ import { RouterModule } from '@angular/router';
 
 import { CoreModule } from '../../core/core.module';
 
-import { NgrxModule } from './ngrx/ngrx.module';
 import { SigninComponent } from './signin.component';
 import { InputComponent } from './pages/input/input.component';
 
@@ -14,7 +13,6 @@ import { SigninService } from './signin.services';
     imports: [
         CommonModule,
         CoreModule,
-        NgrxModule,
         RouterModule.forChild([{
             path: 'signin',
             component: SigninComponent

@@ -4,7 +4,6 @@ import { RouterModule } from '@angular/router';
 
 import { CoreModule } from '../../core/core.module';
 
-import { NgrxModule } from './ngrx/ngrx.module';
 import { SignoutComponent } from './signout.component';
 import { ConfirmComponent } from './pages/confirm/confirm.component';
 
@@ -13,7 +12,6 @@ import { SignoutService } from './signout.services';
 @NgModule({
     imports: [
         CommonModule,
-        NgrxModule,
         CoreModule,
         RouterModule.forChild([{
             path: 'signout',

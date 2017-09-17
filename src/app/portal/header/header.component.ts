@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 
-import { IAppState } from '../../core/ngrx/IAppState';
-import { SwitchLocale } from '../../core/ngrx/content/content.actions';
+import { IAppState } from '../../portal/ngrx/IAppState';
+import { SwitchLocale } from '../../portal/ngrx/content/content.actions';
 
 @Component({
     selector: 'app-header',

@@ -4,11 +4,10 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 
-import { IAppState } from '../../core/ngrx/IAppState';
-import { ISubAppContent } from '../../core/ngrx/content/IContent';
-import { LoadContent, UnLoadContent } from '../../core/ngrx/content/content.actions';
-import { Signin, SigninReset } from './ngrx/signin.actions';
-import { RefreshProfile } from '../../core/ngrx/user/user.actions';
+import { IAppState } from '../../portal/ngrx/IAppState';
+import { ISubAppContent } from '../../portal/ngrx/content/IContent';
+import { LoadContent, UnLoadContent } from '../../portal/ngrx/content/content.actions';
+import { RefreshProfile } from '../../portal/ngrx/user/user.actions';
 
 import { SigninService } from './signin.services';
 

@@ -3,11 +3,11 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 
-import { IAppState } from '../../core/ngrx/IAppState';
-import { ISubAppContent } from '../../core/ngrx/content/IContent';
-import { IAccount } from '../../core/ngrx/account/IAccount';
-import { LoadAccount } from '../../core/ngrx/account/account.actions';
-import { LoadContent, UnLoadContent } from '../../core/ngrx/content/content.actions';
+import { IAppState } from '../../portal/ngrx/IAppState';
+import { ISubAppContent } from '../../portal/ngrx/content/IContent';
+import { IAccount } from '../../portal/ngrx/account/IAccount';
+import { LoadAccount } from '../../portal/ngrx/account/account.actions';
+import { LoadContent, UnLoadContent } from '../../portal/ngrx/content/content.actions';
 
 import { AccountSummaryService } from './accountsummary.services';
 

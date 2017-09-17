@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { PortalModule } from './portal/portal.module';
+
 import { AppComponent } from './app.component';
 
 @NgModule({
