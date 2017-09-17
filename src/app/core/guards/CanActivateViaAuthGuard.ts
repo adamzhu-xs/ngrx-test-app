@@ -26,7 +26,7 @@ export class CanActivateViaAuthGuard implements CanActivate {
         }).catch(() => {
             this.router.navigate(['/auth/signin']);
             return Observable.of(false);
-        });;
+        });
     }
 
 }

@@ -9,7 +9,7 @@ import {
 
 const initialState: IContent = {
     currentLocale: 'en'
-}
+};
 
 export function contentReducer(state: IContent = initialState, action: ContentAction): IContent {
     switch (action.type) {

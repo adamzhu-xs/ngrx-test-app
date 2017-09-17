@@ -13,13 +13,13 @@ export interface ISubAppContent {
 export interface IContent {
     currentLocale: string;
 
-    auth_signin?: ISubAppContent,
-    auth_signout?: ISubAppContent,
-    auth_register?: ISubAppContent,
+    auth_signin?: ISubAppContent;
+    auth_signout?: ISubAppContent;
+    auth_register?: ISubAppContent;
 
-    dashboard_accountsummary?: ISubAppContent,
-    dashboard_accountdetails?: ISubAppContent,
+    dashboard_accountsummary?: ISubAppContent;
+    dashboard_accountdetails?: ISubAppContent;
 
-    customerservice_ordercheck?: ISubAppContent,
-    customerservice_orderstatement?: ISubAppContent
+    customerservice_ordercheck?: ISubAppContent;
+    customerservice_orderstatement?: ISubAppContent;
 }

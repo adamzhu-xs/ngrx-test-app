@@ -2,10 +2,10 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 
-app.use(cors())
+app.use(cors());
 
 app.get('/', function (req, res) {
-    res.send('Mock server')
+    res.send('Mock server');
 });
 
 
@@ -20,5 +20,5 @@ app.use('/api/customerservice', customerserviceRoutes);
 
 
 app.listen(3333, function () {
-    console.log('Mock app listening on port 3333!')
+    console.log('Mock app listening on port 3333!');
 });
