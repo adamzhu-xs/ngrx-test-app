@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
+
+import { CoreModule } from '../../core/core.module';
 
 import { AccountdetailsComponent } from './accountdetails.component';
 import { DetailsPanelComponent } from './pages/details-panel/details-panel.component';
@@ -11,6 +13,7 @@ import { AccountDetailsService } from './accountdetails.services';
 @NgModule({
     imports: [
         CommonModule,
+        CoreModule,
         RouterModule.forChild([{
             path: 'accountdetails/:id', component: AccountdetailsComponent
         }])

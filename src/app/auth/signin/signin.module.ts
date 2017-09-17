@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { CoreModule } from '../../core/core.module';
 
 import { NgrxModule } from './ngrx/ngrx.module';
 import { SigninComponent } from './signin.component';
@@ -12,8 +13,7 @@ import { SigninService } from './signin.services';
 @NgModule({
     imports: [
         CommonModule,
-        FormsModule,
-        ReactiveFormsModule,
+        CoreModule,
         NgrxModule,
         RouterModule.forChild([{
             path: 'signin',

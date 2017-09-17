@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
+
+import { CoreModule } from '../../core/core.module';
 
 import { NgrxModule } from './ngrx/ngrx.module';
 import { SignoutComponent } from './signout.component';
@@ -12,6 +14,7 @@ import { SignoutService } from './signout.services';
     imports: [
         CommonModule,
         NgrxModule,
+        CoreModule,
         RouterModule.forChild([{
             path: 'signout',
             component: SignoutComponent

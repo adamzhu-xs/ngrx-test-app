@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Routes, RouterModule } from '@angular/router';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+
+import { CoreModule } from '../../core/core.module';
 
 import { OrdercheckComponent } from './ordercheck.component';
 import { InputComponent } from './pages/input/input.component';
@@ -14,8 +15,7 @@ import { OrderCheckService } from './ordercheck.services';
 @NgModule({
     imports: [
         CommonModule,
-        FormsModule,
-        ReactiveFormsModule,
+        CoreModule,
         RouterModule.forChild([
             {
                 path: 'ordercheck',
